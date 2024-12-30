@@ -136,4 +136,4 @@ I implemented some validation for the inputs to make sure that the user provides
 I used a library that sanitizes the returned data from the server to prevent XSS attacks and other security vulnerabilities when rendering the data in the UI.
 
 #### Demo
-Some demos can be found in /video directory.
+Some demos can be found in `/video` directory.
