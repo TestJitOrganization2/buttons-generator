@@ -134,3 +134,6 @@ I improved the UI to make it more user-friendly and visually appealing. It makes
 I made some security improvements by adding by sanitizing inputs that user provides to the inputs before sending them to the server. This helps to prevent XSS attacks and other security vulnerabilities.
 I implemented some validation for the inputs to make sure that the user provides the correct data. This helps to prevent errors and improve the user experience and also helps to prevent security vulnerabilities.
 I used a library that sanitizes the returned data from the server to prevent XSS attacks and other security vulnerabilities when rendering the data in the UI.
+
+#### Demo
+Some demos can be found in /video directory.
