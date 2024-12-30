@@ -1,0 +1,38 @@
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+on:
+  workflow_call:
+    inputs:
+      env:
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      env:
+        required: true
+        default: dev
+        type: choice
+        description: The environment to deploy to.
+        options:
+          - dev
+          - sandbox
+
+jobs:
+  build-ecr-image:
+    uses: ./.github/workflows/build-image.yml
+    secrets: inherit
+    with:
+      DEPLOYMENT_ENV: ${{ inputs.env }}
+      ACCOUNT_ID: {ACCOUNT_ID}
+      ECR_REPOSITORY_SUFFIX: {ECR_REPOSITORY_SUFFIX}
+
+  deploy:
+    uses: ./.github/workflows/terraform-deploy.yml@main
+    secrets: inherit
+    needs: build-ecr-image
+    with:
+      DEPLOYMENT_ENV: ${{ inputs.env }}
+      WORKING_DIRECTORY: ./infra
+      EXTRA_TF_ARGS: '-var="ecr_image_tag=${{ github.sha }}"'
