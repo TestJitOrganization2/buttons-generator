@@ -23,7 +23,14 @@ cd buttons-generator
 ### 3. Install dependencies
 Make sure you have Docker and Docker Compose are installed on your machine.
 
-### 4. Start the application
+### 4. Set up API Key
+Set up OpenAI API Key that will be used by the application to communicate with the OpenAI API. It is needed during build time to set up the environment variable in the Docker container.
+You can do it using the following command:
+```bash
+export VITE_OPENAI_API_KEY={YOUR_API_KEY}
+```
+
+### 5. Start the application
 To start the React frontend, you can use the following commands:
 ```bash
 make build
@@ -33,11 +40,11 @@ This command will:
 Build the Docker container for the React frontend.
 Start the application.
 
-### 5. Access the application
+### 6. Access the application
 Once the container is running, you can access the application through your browser:
 - [http://localhost:80](http://localhost:80)
 
-### 6. Stop the application
+### 7. Stop the application
 To stop the application, you can use the following command:
 
 ```bash

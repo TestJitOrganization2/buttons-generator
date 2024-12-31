@@ -1,6 +1,15 @@
 import { APP_CONFIG } from '../utils/config.ts';
 import { FormData } from '../components/organisms/Form/Form';
 
+/**
+ * Sanitizes the input string by removing potentially unsafe characters.
+ *
+ * The following characters are removed: <, >, ;, (, ), and &.
+ * This is useful for preventing injection attacks or ensuring clean input.
+ *
+ * @param {string} input - The string to be sanitized.
+ * @returns {string} The sanitized string with unsafe characters removed.
+ */
 const sanitizeInput = (input: string): string => {
   return input.replace(/[<>;()&]/g, '');
 };
