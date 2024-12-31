@@ -18,7 +18,7 @@ jobs:
 
   infrastructure-validate:
     name: Validate Infrastructure
-    uses: ./.github/workflows/terraform-validate.yml@main
+    uses: ./.github/workflows/terraform-validate.yml
     secrets: inherit
     with:
       WORKING_DIRECTORY: infra
